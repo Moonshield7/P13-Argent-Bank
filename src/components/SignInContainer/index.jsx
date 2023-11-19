@@ -1,4 +1,4 @@
-function SignInContent () {
+function SignInContainer () {
   return (
     <main className="main bg-dark" style={{minHeight: "75vh", paddingTop: "3rem"}}>
     <section className="sign-in-content">
@@ -21,4 +21,4 @@ function SignInContent () {
   )
 }
 
-export default SignInContent;
+export default SignInContainer;

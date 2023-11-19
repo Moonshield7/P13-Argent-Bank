@@ -1,12 +1,12 @@
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import SignInContent from "../../components/SignInForm";
+import SignInContainer from "../../components/SignInContainer";
 
 function SignIn () {
   return (
     <div>
       <Header />
-      <SignInContent />
+      <SignInContainer />
       <Footer />
     </div>
   )
