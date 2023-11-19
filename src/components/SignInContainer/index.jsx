@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function SignInContainer () {
   return (
     <main className="main bg-dark" style={{minHeight: "75vh", paddingTop: "3rem"}}>
@@ -14,7 +16,7 @@ function SignInContainer () {
         <div className="input-remember">
           <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
         </div>
-        <a href="./user.html" className="sign-in-button">Sign In</a>
+        <Link to="/user" className="sign-in-button">Sign In</Link>
       </form>
     </section>
   </main>

@@ -2,8 +2,6 @@ import { featuresContent } from "../../assets/content/features";
 import FeatureItem from "../FeatureItem";
 
 function Features () {
-  console.log(featuresContent)
-
   return (
     <section className="features">
       <h2 className="sr-only">Features</h2>
