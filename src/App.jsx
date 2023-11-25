@@ -3,6 +3,7 @@ import './App.css'
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import User from "./pages/User";
+import AccountTransactions from "./pages/AccountTransactions";
 
 function App() {
 
@@ -10,8 +11,9 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home />}  />
-        <Route path='/user' element={<User />}  />
-        <Route path='/sign-in' element={<SignIn />}  />
+        <Route path='/profile' element={<User />}  />
+        <Route path='/login' element={<SignIn />}  />
+        <Route path='/transactions' element={<AccountTransactions />}  />
       </Routes>
     </Router>
   )

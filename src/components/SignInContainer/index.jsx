@@ -16,7 +16,7 @@ function SignInContainer () {
         <div className="input-remember">
           <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
         </div>
-        <Link to="/user" className="sign-in-button">Sign In</Link>
+        <Link to="/profile" className="sign-in-button">Sign In</Link>
       </form>
     </section>
   </main>

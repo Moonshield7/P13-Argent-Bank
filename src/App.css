@@ -1,4 +1,5 @@
 html {
+  box-sizing: border-box;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -249,6 +250,7 @@ body {
 .account-content-wrapper {
   width: 100%;
   flex: 1;
+  text-decoration: none;
 }
 
 .edit-button {
@@ -288,4 +290,53 @@ body {
   .transaction-button {
     width: 200px;
   }
+}
+
+
+/* Added CSS */
+
+.edit-user-input {
+  width: 150px;
+  height: 25px;
+  margin: 0 5px 5px 5px;
+  padding: 3px;
+}
+
+.edit-user-button {
+  width: 100px;
+  height: 25px;
+  margin: 5px;
+  border: 2px solid #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  font-weight: 600;
+} 
+
+/* Transaction table */
+
+.transaction-table .transaction-dropdown {
+  border: none;
+  text-align: left;
+}
+
+.transaction-table {
+  background-color: #fff;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table thead {
+  background-color:#12002b;
+  color: #fff;
+  border: none;
+  height: 30px;
+}
+
+.transaction-table tbody tr  {
+  height: 50px;
+  border-top: 2px solid black;
+}
+
+.column-date {
+  width: 120px;
 }
