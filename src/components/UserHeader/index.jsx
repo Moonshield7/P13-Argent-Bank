@@ -5,6 +5,7 @@ import { modifyUser } from "../../services/api";
 
 function UserHeader () {
   const user = useSelector(selectUser);
+  const [modifyError, setModifyError] = useState(false);
   const dispatch = useDispatch();
   const [editing, setEditing] = useState(false);
 
@@ -22,11 +23,13 @@ function UserHeader () {
         if(lastNameInput.value) {
           dispatch(editLastname(lastNameInput.value))
         }
-        const plop = await modifyUser(user.token, firstNameInput.value, lastNameInput.value);
-        console.log("Modifier l'utilisateur", plop)
+        
+        const editUser = await modifyUser(user.token, firstNameInput.value, lastNameInput.value).catch(setModifyError(true));
+        toggleEditUser();
+        setModifyError(false);
       }
 
-      toggleEditUser();
+      
     }
 
   if(editing) {
@@ -40,6 +43,7 @@ function UserHeader () {
         <div className="edit-user">
           <button className="edit-user-button" onClick={editUser}>Save</button>
           <button className="edit-user-button" onClick={toggleEditUser}>Cancel</button>
+          {modifyError ? <div className="">Erreur lors de la modification (connexion avec l'API), réessayez plus tard.</div> : ""}
         </div>
 
       </div>

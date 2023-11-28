@@ -9,11 +9,15 @@ export async function fetchLogin (emailUser, passwordUser) {
         'email': emailUser,
         'password': passwordUser})
     });
+    
+    if(!response.ok) throw new Error("Erreur lors du fetch login");
+    
+
     const data = await response.json();
     return data
   }
   catch(error){
-    console.log("Erreur lors du fetch login")
+    console.error(error);
   }
 }
 
@@ -26,12 +30,14 @@ export async function fetchUser (token) {
       },
       body: '',
     })
+
+    if(!response.ok) throw new Error("Erreur lors du fetch user")
+
     const data = await response.json()
-    console.log(data);
     return data.body;
   }
   catch (error) {
-    console.log("Erreur lors du fetch user")
+    console.error(error)
   }
 }
 
@@ -48,9 +54,12 @@ export async function modifyUser (token, newFirstname, newLastname) {
         lastName: newLastname
       })
     })
+
+    if(!response.ok) throw new Error("Erreur lors du modify user")
+
     return response;
   }
-  catch {
-    console.log("Erreur lors du modify user")
+  catch(error) {
+    console.error(error)
   }
 }
