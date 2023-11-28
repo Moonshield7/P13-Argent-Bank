@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import User from "./pages/User";
 import AccountTransactions from "./pages/AccountTransactions";
+import Error from "./pages/Error";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Home />}  />
+        <Route path='*' element={<Error />}  />
         <Route path='/profile' element={<User />}  />
         <Route path='/login' element={<SignIn />}  />
         <Route path='/transactions' element={<AccountTransactions />}  />
