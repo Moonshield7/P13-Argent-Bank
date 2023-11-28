@@ -21,7 +21,7 @@ function LogOut (){
     </Link>
     <a className="main-nav-item" onClick={(e) => handleLogOut(e)}>
       <i className="fa-solid fa-right-from-bracket"></i>
-      - Log out
+      Log out
     </a>
   </div>
   )

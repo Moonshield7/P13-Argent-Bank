@@ -6,8 +6,10 @@ function Error () {
   return (
     <div>
       <Header />
-      <h1>Erreur 404 : La page que vous cherchez n'existe pas</h1>
-      <Link to="/">Retourner à la page d'accueil</Link>
+      <div className="error-page">
+        <h1>Erreur 404 : La page que vous cherchez n'existe pas</h1>
+        <Link to="/" className="redirect-link">Retourner à la page d'accueil</Link>
+      </div>
       <Footer />
     </div>
   )
