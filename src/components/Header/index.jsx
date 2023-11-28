@@ -1,6 +1,12 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectUser } from "../../utils/features/users";
+import LogOut from "../LogOut";
+import LogIn from "../LogIn";
 
 function Header () {
+  const user = useSelector(selectUser);
+  
   return (
     <nav className="main-nav">
     <Link className="main-nav-logo" to='/'>
@@ -11,12 +17,7 @@ function Header () {
       />
       <h1 className="sr-only">Argent Bank</h1>
     </Link>
-    <div>
-      <Link className="main-nav-item" to="/login">
-        <i className="fa fa-user-circle"></i>
-        Sign In
-      </Link>
-    </div>
+    {user ? <LogOut /> : <LogIn /> }
   </nav>
   )
 }
