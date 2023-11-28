@@ -22,6 +22,10 @@ body {
   background-color: #12002b;
 }
 
+a:hover, button:hover{
+  cursor: pointer;
+}
+
 .sr-only {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
@@ -59,6 +63,10 @@ body {
 
 .main-nav-item:hover {
   text-decoration: underline;
+}
+
+.main-nav-item i {
+  margin-right: 5px;
 }
 
 .main-nav-logo {
@@ -339,4 +347,10 @@ body {
 
 .column-date {
   width: 120px;
+}
+
+.login-error {
+  font-size: 12px;
+  color: red;
+  margin-top: 10px;
 }

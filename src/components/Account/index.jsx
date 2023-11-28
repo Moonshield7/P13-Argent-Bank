@@ -3,8 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 
 function Account ({content}) {
   const onTransactionsPage = (useLocation().pathname === '/transactions')
-  console.log(onTransactionsPage)
-
 
   return (
     <li className="account">
