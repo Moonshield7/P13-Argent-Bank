@@ -1,10 +1,22 @@
-import { transactionsContent } from "../../assets/content/transactions";
 import { accountsContent } from "../../assets/content/accounts";
 import Account from "../Account";
 import TransactionDetail from "../TransactionDetail";
+import { useEffect, useState } from "react";
+import { fetchTransactions } from "../../services/fetchMockDatas";
 
 function Transactions () {
-  return (
+  const [transactionsData, setTransactionsData] = useState();
+
+  useEffect(() => {
+    async function getTransactions () {
+      setTransactionsData(await fetchTransactions())
+    }
+    getTransactions();
+
+  }, [])
+
+  if(transactionsData){
+    return (
     <div className="main bg-dark" style={{padding: "3rem"}}>
       <Account content={accountsContent[0]}/>
     <table className="transaction-table">
@@ -18,14 +30,14 @@ function Transactions () {
       </tr>
       </thead>
       {
-        transactionsContent.map(transaction => {
+        transactionsData.map(transaction => {
           return <TransactionDetail key={transaction.id} elem={transaction} />
         })
       }
     </table>
     </div>
 
-  )
+  )}
 }
 
 export default Transactions;
