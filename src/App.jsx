@@ -5,6 +5,7 @@ import SignIn from "./pages/SignIn";
 import User from "./pages/User";
 import AccountTransactions from "./pages/AccountTransactions";
 import Error from "./pages/Error";
+import ProtectedRoute from "./pages/ProtectedRoute";
 
 function App() {
 
@@ -13,9 +14,9 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}  />
         <Route path='*' element={<Error />}  />
-        <Route path='/profile' element={<User />}  />
+        <Route path='profile' element={<ProtectedRoute><User/></ProtectedRoute>}/>
+        <Route path='transactions' element={<ProtectedRoute><AccountTransactions/></ProtectedRoute>}/>
         <Route path='/login' element={<SignIn />}  />
-        <Route path='/transactions' element={<AccountTransactions />}  />
       </Routes>
     </Router>
   )

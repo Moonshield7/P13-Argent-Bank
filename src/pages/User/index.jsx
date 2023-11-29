@@ -17,16 +17,16 @@ function User () {
     </div>
     )
   }
-  return(
-    <div>
-      <Header />
-      <div className="error-page">
-        <h1>Vous devez être connecté pour accéder à votre compte</h1>
-        <Link to="/login" className="redirect-link">Retour à la page de connexion</Link>
-      </div>
-      <Footer />
-    </div>
-  )
+  // return(
+  //   <div>
+  //     <Header />
+  //     <div className="error-page">
+  //       <h1>Vous devez être connecté pour accéder à votre compte</h1>
+  //       <Link to="/login" className="redirect-link">Retour à la page de connexion</Link>
+  //     </div>
+  //     <Footer />
+  //   </div>
+  // )
   
   
   
