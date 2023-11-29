@@ -17,7 +17,7 @@ function UserContainer () {
       <main className="main bg-dark" style={{padding: "3rem"}}>
         <UserHeader />
         <h2 className="sr-only">Accounts</h2>
-        <ul>
+        <ul className="accounts-container">
           {accountsData.map(elem => <Account key={elem.title} content={elem} />)}
         </ul>
       </main>

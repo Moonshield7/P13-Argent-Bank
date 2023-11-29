@@ -3,7 +3,6 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import UserContainer from "../../components/UserContainer";
 import { selectUser } from "../../utils/features/users";
-import { Link } from "react-router-dom";
 
 function User () {
   const user = useSelector(selectUser);
@@ -17,19 +16,6 @@ function User () {
     </div>
     )
   }
-  // return(
-  //   <div>
-  //     <Header />
-  //     <div className="error-page">
-  //       <h1>Vous devez être connecté pour accéder à votre compte</h1>
-  //       <Link to="/login" className="redirect-link">Retour à la page de connexion</Link>
-  //     </div>
-  //     <Footer />
-  //   </div>
-  // )
-  
-  
-  
 }
 
 export default User;

@@ -17,7 +17,7 @@ function Transactions () {
 
   if(transactionsData){
     return (
-    <div className="main bg-dark" style={{padding: "3rem"}}>
+    <div className="main bg-dark">
       <Account content={accountsContent[0]}/>
     <table className="transaction-table">
       <thead>

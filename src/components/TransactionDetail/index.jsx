@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
-import pen from "../../assets/img/pen-solid.svg"
 
 function TransactionDetail ({elem}) {
   const [showDetails, setShowDetails] = useState(false);

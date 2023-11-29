@@ -19,6 +19,7 @@ body {
 }
 
 .bg-dark {
+  padding: 3rem;
   background-color: #12002b;
 }
 
@@ -224,13 +225,17 @@ a:hover, button:hover{
   padding: 0;
 }
 
+.accounts-container{
+  padding: 0;
+}
+
 .account {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
   background-color: #fff;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   flex-direction: column;
   padding: 1.5rem;
@@ -343,6 +348,7 @@ a:hover, button:hover{
   height: 30px;
 }
 
+
 .transaction-table tbody tr  {
   height: 50px;
   border-top: 2px solid black;
@@ -371,4 +377,23 @@ a:hover, button:hover{
   text-decoration: none;
   font-weight: 400;
   margin-top: 60px;
+}
+
+.logout-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width:600px) {
+  .transaction-table{
+    width: 100vw;
+    font-size: 12px;
+  }
+  .bg-dark{
+    padding: 0px;
+    min-height: 80vh;
+  }
 }

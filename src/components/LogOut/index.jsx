@@ -14,7 +14,7 @@ function LogOut (){
   }
 
   return (
-  <div>
+  <div className="logout-container">
     <Link className="main-nav-item" to="/profile">
       <i className="fa fa-user-circle"></i>
       {user.firstname}
