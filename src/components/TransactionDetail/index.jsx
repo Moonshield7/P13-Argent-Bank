@@ -3,9 +3,36 @@ import { PropTypes } from "prop-types";
 
 function TransactionDetail ({elem}) {
   const [showDetails, setShowDetails] = useState(false);
+  const [editCategory, setEditCategory] = useState(false);
+  const [editNotes, setEditNotes] = useState(false);
+  const [elemCategory, setElemCategory] = useState(elem.category)
+  const [elemNotes, setElemNotes] = useState(elem.notes)
+
   function toggleShowDetails () {
     setShowDetails(!showDetails);
   }
+
+  function toggleEditCategory() {
+    setEditCategory(!editCategory);
+  }
+
+  function changeCategory(){
+    const categorySelect = document.getElementById("account-category");
+    setElemCategory(categorySelect.value)
+    toggleEditCategory();
+  }
+
+  function toggleEditNotes() {
+    setEditNotes(!editNotes);
+  }
+
+  function changeNotes(){
+    const categorySelect = document.getElementById("account-notes");
+    setElemNotes(categorySelect.value)
+    toggleEditNotes();
+  }
+
+
 
   return (
     <tbody>
@@ -27,10 +54,25 @@ function TransactionDetail ({elem}) {
         showDetails ? 
         <tr className="transaction-dropdown">
             <td></td>
-            <td colSpan={2}>
+            <td colSpan={4}>
               <p>Transaction type : {elem.transactionType}</p>
-              <p>Category : {elem.category}</p>
-              <p>Notes : {elem.notes}</p>
+              <p>Category : 
+              {editCategory ?
+                <select  className="small-margin-left"name="category" id="account-category" onChange={changeCategory}>
+                  <option value="Food">Food</option>
+                  <option value="Health">Health</option>
+                  <option value="Hobbies">Hobbies</option>
+                  <option value="Pet">Pet</option>
+                </select>
+                : (<span className="small-margin-left">{elemCategory} <i className="fa-solid fa-pen small-margin-left" onClick={toggleEditCategory}></i></span>)
+              }</p>
+              <p>Notes : 
+                {editNotes ? 
+                <span className="small-margin-left">
+                  <input type="text" id="account-notes" placeholder={elemNotes}/>
+                  <button className="small-margin-left" onClick={changeNotes}>Save</button>
+                </span>
+                : <span className="small-margin-left">{elemNotes} <i className="fa-solid fa-pen small-margin-left" onClick={toggleEditNotes}></i></span>}</p>
             </td>
             
         </tr>

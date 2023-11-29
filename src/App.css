@@ -387,6 +387,10 @@ a:hover, button:hover{
   height: 100%;
 }
 
+.small-margin-left{
+  margin-left: 5px;
+}
+
 @media screen and (max-width:600px) {
   .transaction-table{
     width: 100vw;
@@ -395,5 +399,8 @@ a:hover, button:hover{
   .bg-dark{
     padding: 0px;
     min-height: 80vh;
+  }
+  .account{
+    margin-bottom: 0;
   }
 }
