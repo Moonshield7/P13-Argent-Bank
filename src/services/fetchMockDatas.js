@@ -11,14 +11,16 @@ export async function fetchAccounts() {
   }
 }
 
-export async function fetchTransactions() {
+export async function fetchTransactions(userId) {
   try{
     const response = await fetch('/mockData/transactions.json');
 
     if(!response.ok) throw new Error("Error while fetching transactions data")
 
     const data = await response.json();
-    return data;
+    const dataUser = data.filter(data => data.idUser === userId)
+    return dataUser;
+    
   } catch(error) {
     console.error(error);
   }

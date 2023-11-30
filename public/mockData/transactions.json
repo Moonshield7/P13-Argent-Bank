@@ -1,6 +1,7 @@
 [
   {
     "id": "tr1",
+    "idUser": "tonystark",
     "date": "June 20th, 2020",
     "description": "Golden Sun Bakery",
     "amount": "$5.00",
@@ -11,6 +12,7 @@
   },
   {
     "id": "tr2",
+    "idUser": "tonystark",
     "date": "June 21th, 2020",
     "description": "Golden Sun Bakery",
     "amount": "$10.00",
@@ -21,6 +23,7 @@
   },
   {
     "id": "tr3",
+    "idUser": "tonystark",
     "date": "June 22th, 2020",
     "description": "Golden Sun Bakery",
     "amount": "$20.00",
@@ -31,6 +34,7 @@
   },
   {
     "id": "tr4",
+    "idUser": "tonystark",
     "date": "June 23th, 2020",
     "description": "Golden Sun Bakery",
     "amount": "$30.00",
@@ -38,5 +42,49 @@
     "transactionType": "Electronic",
     "category": "Food",
     "notes": ""
-  }
+  },
+  {
+  "id": "tr5",
+  "idUser": "steverogers",
+  "date": "June 20th, 2020",
+  "description": "Golden Sun Bakery",
+  "amount": "$5.00",
+  "balance": "$2082.79",
+  "transactionType": "Electronic",
+  "category": "Food",
+  "notes": ""
+},
+{
+  "id": "tr6",
+  "idUser": "steverogers",
+  "date": "June 21th, 2020",
+  "description": "Golden Sun Bakery",
+  "amount": "$10.00",
+  "balance": "$2087.79",
+  "transactionType": "Electronic",
+  "category": "Food",
+  "notes": ""
+},
+{
+  "id": "tr7",
+  "idUser": "steverogers",
+  "date": "June 22th, 2020",
+  "description": "Golden Sun Bakery",
+  "amount": "$20.00",
+  "balance": "$2097.79",
+  "transactionType": "Electronic",
+  "category": "Food",
+  "notes": ""
+},
+{
+  "id": "tr8",
+  "idUser": "steverogers",
+  "date": "June 23th, 2020",
+  "description": "Golden Sun Bakery",
+  "amount": "$30.00",
+  "balance": "$2117.79",
+  "transactionType": "Electronic",
+  "category": "Food",
+  "notes": ""
+}
 ]

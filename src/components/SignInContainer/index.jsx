@@ -20,6 +20,7 @@ function SignInContainer () {
         setErrorLogin(false)
         const userData = await fetchUser(verifyUser.body.token);
         dispatch(login({
+          idUser: (userData.firstName + userData.lastName).toLowerCase(),
           email: email,
           password: password,
           firstname: userData.firstName,

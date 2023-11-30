@@ -3,17 +3,20 @@ import Account from "../Account";
 import TransactionDetail from "../TransactionDetail";
 import { useEffect, useState } from "react";
 import { fetchTransactions } from "../../services/fetchMockDatas";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../utils/features/users";
 
 function Transactions () {
   const [transactionsData, setTransactionsData] = useState();
+  const idUser = useSelector(selectUser).idUser;
 
   useEffect(() => {
     async function getTransactions () {
-      setTransactionsData(await fetchTransactions())
+      setTransactionsData(await fetchTransactions(idUser))
     }
     getTransactions();
 
-  }, [])
+  }, [idUser])
 
   if(transactionsData){
     return (
