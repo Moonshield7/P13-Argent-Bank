@@ -1,119 +1,62 @@
 swagger: '2.0'
 info:
-  title: Argent Bank API documentation
-  description: Contains all available API endpoints in the v1 and the ones needed for the v2
-  version: '2.0.0'
+  title: Bank Argent API documentation
+  description: Contains the needed endpoints for the v2
+  version: '1.0.0'
   termsOfService: 'http://swagger.io/terms/'
 host: localhost:3001
 basePath: /api/v2
 schemes:
   - http
 paths:
-  /user/login:
-    post:
+  /user/transactions:
+    get:
       tags:
-        - User Module
-      summary: Login
-      description: API for Login
-      parameters:
-        - in: body
-          name: body
-          description: Login Payload
-          required: true
-          schema:
-            $ref: '#/definitions/Login'
-      produces:
-        - application/json
+        - Transactions Module
+      summary: Transaction API
+      description:  API for retrieving all of the transactions
       responses:
         '200':
-          description: Login Successfully
+          description: Transactions retrieved Successfully
           schema:
-            $ref: '#/definitions/LoginResponse'
-        '400':
-          description: Invalid Fields
+            $ref: '#/definitions/ArrayOfTransactionResponse'
+        '401':
+          description: You need to be authentified to access to these data
+        '403':
+          description: You don't have the permission to access these data
+        '404':
+          description: Transactions not found
         '500':
           description: Internal Server Error
-  /user/signup:
-    post:
-      tags:
-        - User Module
-      summary: Signup
-      description: API for Signup
-      parameters:
-        - in: body
-          name: body
-          description: Signup Payload
-          required: true
-          schema:
-            $ref: '#/definitions/User'
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: Signup Successfully
-          schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
-          description: Invalid Fields
-        '500':
-          description: Internal Server Error
-  /user/profile:
     post:
       security:
         - Bearer: []
-      tags:
-        - User Module
-      summary: User Profile API
-      description: API for fetching a user profile
-      parameters:
-        - in: header
-          name: Authorization
-          description: Attach Bearer JWT token
-          required: true
-          type: string
       produces:
         - application/json
-      responses:
-        '200':
-          description: User profile retrieved successully
-          schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
-          description: Invalid Fields
-        '500':
-          description: Internal Server Error
-    put:
-      security:
-        - Bearer: []
       tags:
-        - User Module
-      summary: User Profile API
-      description: API for updating a user profile
+        - Transactions Module
+      summary: Create a transaction (should not be implemented)
+      description: API to create a new transaction
       parameters:
-        - in: header
-          name: Authorization
-          description: Attach Bearer JWT token
-          required: true
-          type: string
         - in: body
           name: body
-          description: Update user profile attributes
           required: true
           schema:
-            $ref: '#/definitions/UserProfile'
-      produces:
-        - application/json
+            $ref: '#/definitions/Transaction'
       responses:
-        '200':
-          description: User profile retrieved successully
+        '201':
+          description: Transaction added successfully
           schema:
-            $ref: '#/definitions/ApiResponse'
+            $ref: '#/definitions/TransactionResponse'
         '400':
-          description: Invalid Fields
+          description: Bad request, make sure the object you are trying to create match the syntax
+        '401':
+          description: You need to be authentified to access to add a new transaction
+        '403':
+          description: You don't have the permission to add a new transaction
         '500':
           description: Internal Server Error
-### ADDED PART OF THE API ###
-  /transactions/{id}:
+  /user/transactions/{id}:
     get:
       tags:
         - Transactions Module
@@ -132,8 +75,14 @@ paths:
             $ref: '#/definitions/TransactionResponse'
         '400':
           description: Bad request, transaction ID must be an integer and larger than 0
+        '401':
+          description: You need to be authentified to access to these data
+        '403':
+          description: You don't have the permission to access these data
         '404':
           description: A transaction with the specified ID was not found
+        '500':
+          description: Internal Server Error
     put:
       security:
         - Bearer: []
@@ -142,6 +91,11 @@ paths:
       summary: Modify a transaction
       description: API for updating a transaction
       parameters:
+        - name: id
+          in: path
+          description: transaction id
+          required: true
+          type: integer
         - in: header
           name: Authorization
           description: Attach Bearer JWT token
@@ -162,6 +116,10 @@ paths:
             $ref: '#/definitions/TransactionResponse'
         '400':
           description: Invalid Fields
+        '401':
+          description: You need to be authentified to modify this transaction
+        '403':
+          description: You don't have the permission to modify this transaction
         '404':
           description: Transaction not found
         '500':
@@ -172,7 +130,7 @@ paths:
         - Bearer: []
       tags:
         - Transactions Module
-      summary: Delete a transaction 
+      summary: Delete a transaction (should not be implemented)
       description: API for deleting permanently the selected transaction
       parameters:
         - in: path
@@ -188,50 +146,12 @@ paths:
       responses:
         '200':
           description: Transaction deleted successfully
-        '400':
-          description: Invalid token or id supplied
+        '401':
+          description: You need to be authentified to delete this transaction
+        '403':
+          description: You don't have the permission to delete this transaction
         '404':
           description: Transaction not found
-        '500':
-          description: Internal Server Error
-      
-  /transactions:
-    get:
-      tags:
-        - Transactions Module
-      summary: Transaction API
-      description:  API for all of the transactions
-      responses:
-        '200':
-          description: Transactions retrieved Successfully
-          schema:
-            $ref: '#definitions/ArrayOfTransactions'
-        '400':
-          description: Bad request, user ID must be a string composed of the user's first and last name
-        '404':
-          description: A user with the specified ID was not found
-    post:
-      security:
-        - Bearer: []
-      produces:
-        - application/json
-      tags:
-        - Transactions Module
-      summary: Create a transaction
-      description: API to create a new transaction
-      parameters:
-        - in: body
-          name: body
-          required: true
-          schema:
-            $ref: '#/definitions/Transaction'
-      responses:
-        '201':
-          description: Transaction added successfully
-          schema:
-            $ref: '#/definitions/TransactionResponse'
-        '400':
-          description: Bad request, make sure the object you are trying to create match the syntax
         '500':
           description: Internal Server Error
 securityDefinitions:
@@ -240,51 +160,6 @@ securityDefinitions:
     name: Authorization
     in: header
 definitions:
-  User:
-    properties:
-      email:
-        type: string
-        description: user email
-      password:
-        type: string
-        description: user password
-      firstName:
-        type: string
-        description: user first name
-      lastName:
-        type: string
-        description: user last name
-        # Added property : user id
-      id:
-        type: string
-        description: user id
-  Login:
-    properties:
-      email:
-        type: string
-        description: user email
-      password:
-        type: string
-        description: user password
-  ApiResponse:
-    type: object
-    properties:
-      status:
-        type: integer
-      message:
-        type: string
-      body:
-        type: object
-        properties:
-          id:
-            type: string
-          email:
-            type: string
-  LoginResponse:
-    type: object
-    properties:
-      token:
-        type: string
   TransactionResponse:
     type: object
     properties: 
@@ -299,19 +174,54 @@ definitions:
             type: object
             properties:
               schema:
-                $ref: '#/definitions/Transaction'
-  UserProfile:
+                $ref: '#/definitions/TransactionFull'
+  ArrayOfTransactionResponse:
     type: object
-    properties:
-      firstName:
+    properties: 
+      status:
+        type: integer
+      message:
         type: string
-      lastName:
-        type: string
+      body:
+        type: object
+        properties: 
+          transaction:
+            type: object
+            properties:
+              schema:
+                $ref: '#/definitions/ArrayOfTransactions'
   ArrayOfTransactions:
     type: array
     items:
-      $ref: '#/definitions/Transaction'
+      $ref: '#/definitions/TransactionFull'
   Transaction:
+    type: object
+    properties:
+      date:
+        type: string
+        example: "November 11, 2023"
+      month:
+        type: string
+        example: "2023-11"
+      description:
+        type: string
+        example: "Golden Sun Bakery"
+      amount:
+        type: number
+        example: "5.05"
+      balance:
+        type: number
+        example: "2082.79"
+      transactionType:
+        type: string
+        example: "Electronic"
+      category:
+        type: string
+        example: "Food"
+      notes:
+        type: string
+        example: "Buying dinner to mom"
+  TransactionFull:
     type: object
     properties:
       idUser:
@@ -322,7 +232,10 @@ definitions:
         example: "tr1"
       date:
         type: string
-        example: "June 20th, 2020"
+        example: "November 11, 2023"
+      month:
+        type: string
+        example: "2023-11"
       description:
         type: string
         example: "Golden Sun Bakery"
