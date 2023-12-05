@@ -14,7 +14,14 @@ paths:
       tags:
         - Transactions Module
       summary: Transaction API
-      description:  API for retrieving all of the transactions
+      description:  API for retrieving all of the transactions of the selected month
+      parameters:
+        - in: query
+          name: month
+          type: string
+          description: Year and number of the month from which we want to retrieve the transactions
+          default: "2023-11"
+          required: true
       responses:
         '200':
           description: Transactions retrieved Successfully
