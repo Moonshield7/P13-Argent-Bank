@@ -11,11 +11,18 @@ schemes:
 paths:
   /user/transactions:
     get:
+      security:
+        - Bearer: []
       tags:
         - Transactions Module
       summary: Transaction API
       description:  API for retrieving all of the transactions of the selected month
       parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
         - in: query
           name: month
           type: string
@@ -31,8 +38,6 @@ paths:
           description: You need to be authentified to access to these data
         '403':
           description: You don't have the permission to access these data
-        '404':
-          description: Transactions not found
         '500':
           description: Internal Server Error
     post:
@@ -45,6 +50,11 @@ paths:
       summary: Create a transaction (should not be implemented)
       description: API to create a new transaction
       parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
         - in: body
           name: body
           required: true
@@ -65,11 +75,18 @@ paths:
           description: Internal Server Error
   /user/transactions/{id}:
     get:
+      security:
+        - Bearer: []
       tags:
         - Transactions Module
       summary: Retrieve one transaction
       description:  API to fetch one of the transactions
       parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
         - name: id
           in: path
           description: transaction id
@@ -239,6 +256,7 @@ definitions:
         example: "tr1"
       date:
         type: string
+        format: date
         example: "November 11, 2023"
       month:
         type: string
