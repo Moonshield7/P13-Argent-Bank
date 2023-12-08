@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import UserContainer from "../../components/UserContainer";
-import { selectUser } from "../../utils/features/users";
+import { useSelector } from 'react-redux';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import UserContainer from '../../components/UserContainer';
+import { selectUser } from '../../utils/features/users';
 
 function User () {
   const user = useSelector(selectUser);
@@ -14,7 +14,7 @@ function User () {
       <UserContainer />
       <Footer />
     </div>
-    )
+    );
   }
 }
 

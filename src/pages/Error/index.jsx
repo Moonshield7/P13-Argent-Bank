@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import { Link } from 'react-router-dom';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 function Error () {
   return (
@@ -12,7 +12,7 @@ function Error () {
       </div>
       <Footer />
     </div>
-  )
+  );
 }
 
 export default Error;

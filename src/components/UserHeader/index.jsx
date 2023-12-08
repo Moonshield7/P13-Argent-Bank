@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { editFirstname, editLastname, selectUser } from "../../utils/features/users";
-import { modifyUser } from "../../services/api";
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { editFirstname, editLastname, selectUser } from '../../utils/features/users';
+import { modifyUser } from '../../services/api';
 
 function UserHeader () {
   const user = useSelector(selectUser);
@@ -11,23 +11,23 @@ function UserHeader () {
 
     function toggleEditUser () {
       setEditing(!editing);
-      setModifyError(false)
+      setModifyError(false);
     }
 
     async function editUser () {
-      const firstNameInput = document.getElementById("firstNameInput");
-      const lastNameInput = document.getElementById("lastNameInput");
+      const firstNameInput = document.getElementById('firstNameInput');
+      const lastNameInput = document.getElementById('lastNameInput');
       if(firstNameInput.value && lastNameInput.value){    
         setModifyError(false);  
         dispatch(editFirstname(firstNameInput.value));
-        dispatch(editLastname(lastNameInput.value))
+        dispatch(editLastname(lastNameInput.value));
 
         const editUser = await modifyUser(user.token, firstNameInput.value, lastNameInput.value);
         toggleEditUser();
         setModifyError(false);
 
       }
-      setModifyError(true)
+      setModifyError(true);
       
     }
 
@@ -42,18 +42,18 @@ function UserHeader () {
         <div className="edit-user">
           <button className="edit-user-button" onClick={editUser}>Save</button>
           <button className="edit-user-button" onClick={toggleEditUser}>Cancel</button>
-          {modifyError ? <div className="">Veuillez remplir les champs correctement.</div> : ""}
+          {modifyError ? <div className="">Veuillez remplir les champs correctement.</div> : ''}
         </div>
 
       </div>
-    )
+    );
   }
   return (
     <div className="header">
-      <h1>Welcome back<br />{user.firstname + " " + user.lastname} !</h1>
+      <h1>Welcome back<br />{user.firstname + ' ' + user.lastname} !</h1>
       <button className="edit-button" onClick={toggleEditUser}>Edit Name</button>
     </div>
-  )
+  );
 }
 
 export default UserHeader;

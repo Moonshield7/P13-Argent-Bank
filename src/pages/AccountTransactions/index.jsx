@@ -1,6 +1,6 @@
-import Footer from "../../components/Footer";
-import Header from "../../components/Header";
-import Transactions from "../../components/Transactions";
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
+import Transactions from '../../components/Transactions';
 
 function AccountTransactions () {
   return (
@@ -9,7 +9,7 @@ function AccountTransactions () {
       <Transactions />
       <Footer />
     </div>
-  )
+  );
 }
 
 export default AccountTransactions;

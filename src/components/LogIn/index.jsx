@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 function LogIn () {
   return (
@@ -6,7 +6,7 @@ function LogIn () {
       <i className="fa fa-user-circle"></i>
       Sign In
     </Link>
-  )
+  );
 }
 
 export default LogIn;

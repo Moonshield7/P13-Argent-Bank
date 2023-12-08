@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { selectUser } from "../../utils/features/users";
-import LogOut from "../LogOut";
-import LogIn from "../LogIn";
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { selectUser } from '../../utils/features/users';
+import LogOut from '../LogOut';
+import LogIn from '../LogIn';
 
 function Header () {
   const user = useSelector(selectUser);
@@ -19,7 +19,7 @@ function Header () {
     </Link>
     {user ? <LogOut /> : <LogIn /> }
   </nav>
-  )
+  );
 }
 
 export default Header;

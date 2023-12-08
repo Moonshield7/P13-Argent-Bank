@@ -10,11 +10,11 @@ export async function fetchLogin (emailUser, passwordUser) {
         'password': passwordUser})
     });
     
-    if(!response.ok) throw new Error("Erreur lors du fetch login");
+    if(!response.ok) throw new Error('Erreur lors du fetch login');
     
 
     const data = await response.json();
-    return data
+    return data;
   }
   catch(error){
     console.error(error);
@@ -29,15 +29,15 @@ export async function fetchUser (token) {
         Authorization: `Bearer ${token}`
       },
       body: '',
-    })
+    });
 
-    if(!response.ok) throw new Error("Erreur lors du fetch user")
+    if(!response.ok) throw new Error('Erreur lors du fetch user');
 
-    const data = await response.json()
+    const data = await response.json();
     return data.body;
   }
   catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
 
@@ -53,13 +53,13 @@ export async function modifyUser (token, newFirstname, newLastname) {
         firstName: newFirstname,
         lastName: newLastname
       })
-    })
+    });
 
-    if(!response.ok) throw new Error("Erreur lors du modify user")
+    if(!response.ok) throw new Error('Erreur lors du modify user');
 
     return response;
   }
   catch(error) {
-    console.error(error)
+    console.error(error);
   }
 }

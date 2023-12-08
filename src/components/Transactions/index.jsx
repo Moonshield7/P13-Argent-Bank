@@ -1,10 +1,10 @@
-import { accountsContent } from "../../assets/content/accounts";
-import Account from "../Account";
-import TransactionDetail from "../TransactionDetail";
-import { useEffect, useState } from "react";
-import { fetchTransactions } from "../../services/fetchMockDatas";
-import { useSelector } from "react-redux";
-import { selectUser } from "../../utils/features/users";
+import { accountsContent } from '../../assets/content/accounts';
+import Account from '../Account';
+import TransactionDetail from '../TransactionDetail';
+import { useEffect, useState } from 'react';
+import { fetchTransactions } from '../../services/fetchMockDatas';
+import { useSelector } from 'react-redux';
+import { selectUser } from '../../utils/features/users';
 
 function Transactions () {
   const [transactionsData, setTransactionsData] = useState();
@@ -12,11 +12,11 @@ function Transactions () {
 
   useEffect(() => {
     async function getTransactions () {
-      setTransactionsData(await fetchTransactions(idUser))
+      setTransactionsData(await fetchTransactions(idUser));
     }
     getTransactions();
 
-  }, [idUser])
+  }, [idUser]);
 
   if(transactionsData){
     return (
@@ -34,13 +34,13 @@ function Transactions () {
       </thead>
       {
         transactionsData.map(transaction => {
-          return <TransactionDetail key={transaction.id} elem={transaction} />
+          return <TransactionDetail key={transaction.id} elem={transaction} />;
         })
       }
     </table>
     </div>
 
-  )}
+  );}
 }
 
 export default Transactions;

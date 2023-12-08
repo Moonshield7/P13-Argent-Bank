@@ -1,16 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { logout, selectUser } from "../../utils/features/users";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { logout, selectUser } from '../../utils/features/users';
 
 function LogOut (){
-  const user = useSelector(selectUser)
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   function handleLogOut(e) {
     e.preventDefault();
 
     dispatch(logout());
-    navigate('/')
+    navigate('/');
   }
 
   return (
@@ -24,7 +24,7 @@ function LogOut (){
       Log out
     </a>
   </div>
-  )
+  );
 }
 
 export default LogOut;

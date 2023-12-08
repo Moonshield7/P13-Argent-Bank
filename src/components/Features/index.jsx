@@ -1,5 +1,5 @@
-import { featuresContent } from "../../assets/content/features";
-import FeatureItem from "../FeatureItem";
+import { featuresContent } from '../../assets/content/features';
+import FeatureItem from '../FeatureItem';
 
 function Features () {
   return (
@@ -9,7 +9,7 @@ function Features () {
       <FeatureItem content={featuresContent.money} />
       <FeatureItem content={featuresContent.security} />
     </section>
-  )
+  );
 }
 
 export default Features;

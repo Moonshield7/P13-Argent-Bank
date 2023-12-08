@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { PropTypes } from "prop-types";
+import { useState } from 'react';
+import { PropTypes } from 'prop-types';
 
 function TransactionDetail ({elem}) {
   const [showDetails, setShowDetails] = useState(false);
   const [editCategory, setEditCategory] = useState(false);
   const [editNotes, setEditNotes] = useState(false);
-  const [elemCategory, setElemCategory] = useState(elem.category)
-  const [elemNotes, setElemNotes] = useState(elem.notes)
+  const [elemCategory, setElemCategory] = useState(elem.category);
+  const [elemNotes, setElemNotes] = useState(elem.notes);
 
   function toggleShowDetails () {
     setShowDetails(!showDetails);
@@ -17,8 +17,8 @@ function TransactionDetail ({elem}) {
   }
 
   function changeCategory(){
-    const categorySelect = document.getElementById("account-category");
-    setElemCategory(categorySelect.value)
+    const categorySelect = document.getElementById('account-category');
+    setElemCategory(categorySelect.value);
     toggleEditCategory();
   }
 
@@ -27,8 +27,8 @@ function TransactionDetail ({elem}) {
   }
 
   function changeNotes(){
-    const categorySelect = document.getElementById("account-notes");
-    setElemNotes(categorySelect.value)
+    const categorySelect = document.getElementById('account-notes');
+    setElemNotes(categorySelect.value);
     toggleEditNotes();
   }
 
@@ -77,14 +77,14 @@ function TransactionDetail ({elem}) {
             
         </tr>
         :
-        ""
+        ''
       }
     </tbody>
-  )
+  );
 }
 
 TransactionDetail.propTypes = {
   elem: PropTypes.object
-}
+};
 
 export default TransactionDetail;
