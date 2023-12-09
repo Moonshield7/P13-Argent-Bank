@@ -14,8 +14,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}  />
         <Route path='*' element={<Error />}  />
-        <Route path='profile' element={<ProtectedRoute><User/></ProtectedRoute>}/>
-        <Route path='transactions' element={<ProtectedRoute><AccountTransactions/></ProtectedRoute>}/>
+        <Route path='/profile' element={<ProtectedRoute><User/></ProtectedRoute>}/>
+        <Route path='/transactions' element={<ProtectedRoute><AccountTransactions/></ProtectedRoute>}/>
         <Route path='/login' element={<SignIn />}  />
       </Routes>
     </Router>
