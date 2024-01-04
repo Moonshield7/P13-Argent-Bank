@@ -1,5 +1,5 @@
 # P13 : Utilisez une API pour un compte utilisateur bancaire avec React
-## Par Fannie Presman - Novembre 2023
+## Par Moonshield - Novembre 2023
 
 ### Getting started
 
